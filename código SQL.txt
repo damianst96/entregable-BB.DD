@@ -1,0 +1,55 @@
+-- Obtener los 5 cursos con más unidades
+-- SELECT cursos.titulo, COUNT(unidades_cursos.titulo) FROM cursos
+-- INNER JOIN unidades_cursos
+-- GROUP BY cursos.titulo
+-- LIMIT 5
+
+-- Obtener la media de unidades por curso
+-- SELECT cursos.titulo, AVG(unidades_cursos.id) FROM cursos
+-- INNER JOIN unidades_cursos
+-- GROUP BY cursos.titulo
+
+-- Obtener los usuarios asociados a más de 3 cursos
+-- SELECT nombre, apellido, cursos_has_usuarios.cursos_id FROM usuarios
+-- INNER JOIN cursos_has_usuarios
+-- WHERE cursos_has_usuarios.cursos_id >= 3
+
+-- Obtener las 10 primeras clases que comienzan después de una fecha determinada
+-- SELECT titulo, fecha_inicio FROM clases
+-- WHERE fecha_inicio > "2024-01-01"
+-- LIMIT 10
+
+-- Obtener el número de bloques por tipo para una clase específica
+-- SELECT clases.titulo, COUNT(bloques.titulo) FROM clases
+-- INNER JOIN bloques
+-- GROUP BY titulo
+
+-- Obtener el nombre y el apellido de los usuarios, sustituyendo los valores nulos por una cadena vacía
+-- SELECT COALESCE(nombre) AS "nombre", COALESCE(apellido) AS "apellido" FROM usuarios
+
+-- Obtener los 3 cursos con la mayor cantidad de usuarios
+-- SELECT titulo, COUNT(usuarios.apellido) AS "Cantidad" FROM cursos
+-- INNER JOIN usuarios
+-- GROUP BY titulo DESC
+-- LIMIT 3
+
+-- Obtener el promedio de clases por unidad para cada curso
+-- SELECT AVG(id), unidades_cursos.titulo FROM clases
+-- INNER JOIN unidades_cursos
+-- GROUP BY titulo
+
+-- Obtener los usuarios con más de 2 cursos que comienzan después de una fecha determinada
+-- SELECT nombre, apellido, cursos.titulo, cursos.fecha_inicio, cursos_has_usuarios.usuarios_id FROM usuarios
+-- INNER JOIN cursos, cursos_has_usuarios
+-- WHERE cursos.fecha_inicio > "2024-01-03" & cursos_has_usuarios.usuarios_id > 2
+
+-- Obtener las 5 últimas unidades que comienzan después de una fecha determinada
+-- SELECT titulo, fecha_inicio FROM unidades_cursos
+-- WHERE fecha_inicio >= "2024-02-01"
+-- LIMIT 5
+
+-- Obtener el número de usuarios por categoría para un curso específico
+-- SELECT titulo, COUNT(usuarios.apellido) FROM cursos
+-- INNER JOIN usuarios
+-- WHERE titulo = "Python"
+-- GROUP BY titulo
